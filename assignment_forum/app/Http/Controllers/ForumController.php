@@ -16,10 +16,6 @@ class ForumController extends Controller
      */
     public function index()
     {
-        // $posts = DB::table('posts')
-        //         ->join('users', 'posts.user_id', '=', 'users.id')
-        //         ->select('posts.id as id', 'posts.title as title', 'posts.contents as contents', 'users.name as name')
-        //         ->get();
         $posts = Post::all();
         return view('index', compact('posts'));
     }
@@ -93,3 +89,4 @@ class ForumController extends Controller
         return redirect('/forum');
     }
 }
+// review request
