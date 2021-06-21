@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Support\Facades\DB;
+use App\Like;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ForumRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ForumController extends Controller
 {
@@ -16,7 +19,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('users')->get();
         return view('index', compact('posts'));
     }
 

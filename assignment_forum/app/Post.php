@@ -8,9 +8,9 @@ class Post extends Model
 {
     protected $fillable = ['title', 'contents', 'user_id'];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 }
 // review request
